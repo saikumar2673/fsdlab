@@ -1,0 +1,27 @@
+<html>
+    <head>
+    </head>
+    <body>   
+        <input class="inp" type="text" >
+        <button class="btn" onClick="delayed()">greet</button>
+        <h1 class="op"></h1> 
+        <script>
+           
+            
+            function delayedMessage(message,delay)
+            {
+                setTimeout(()=>{
+                   
+                   document.querySelector(".op").innerHTML="hello"+message;  
+                },delay);
+            }
+             
+            function delayed()
+            {
+                let val=document.querySelector(".inp").value; 
+
+                delayedMessage(val,100);
+            }
+         </script>
+    </body>
+</html>

@@ -1,0 +1,30 @@
+<html>
+    <head>
+      
+    </head>
+    <body>
+        
+        <input class="inp" type="text" >
+        <button class="btn" onClick="greet()">greet</button>
+        <h1 class="op"></h1> 
+        <script>
+            function greet()
+            {
+                let name=document.querySelector(".inp").value;
+                let greeting =(name,printname)=>
+                {
+                    return printname(name);
+                };
+
+            document.querySelector(".op").innerHTML=greeting(name,printname);
+            
+                
+            }
+            function printname(name)
+                {
+                    return `welcome ${name}`;
+                }
+          
+         </script>
+    </body>
+</html>

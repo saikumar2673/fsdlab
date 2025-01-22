@@ -1,0 +1,35 @@
+<html>
+    <head></head>
+    <body>
+        <input type="text" class="inp">
+        <button class="btn" onClick="calc()">calculate</button>
+        <p class="op"></p>
+        <script>
+             function calc()
+             {
+                let num=(Number)(document.querySelector(".inp").value);
+               
+                function mul(num,callback)
+                {
+                    return callback(num*2);
+                }
+                function add(num,callback)
+                {
+                    return callback(num+10);
+                }
+                function sub(num,callback)
+                {
+                    return callback(num-3);
+                }
+                let ans=mul(num,(res)=>{
+                    sub(res,(sres)=>{
+                        add(sres,(ares)=>{
+                            document.querySelector(".op").innerHTML=ares;
+                        })
+                    })
+                })
+                
+             }
+        </script>
+    </body>
+</html>
