@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <style>
+      .mytable
+      {
+          border:2px solid black;
+      }
+      td
+      {
+        border:2px solid black;
+      }
+   </style>
+</head>
+<body>   
+    <table class="mytable">  
+
+    </table>
+
+    <script>
+        async function fetchData() {
+            try {
+                
+                let res = await fetch("https://jsonplaceholder.typicode.com/todos");
+                let data = await res.json()
+                let mytable = document.querySelector(".mytable");
+                let str=`
+                   <tr>
+                <th>User ID</th>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Completed</th>
+            </tr>
+                `;
+                for(let i=0;i<10;i++)
+               {    item=data[i];
+                    str+=`
+                      <tr> 
+                        <td> ${item.userId}</td>
+                        <td> ${item.id}</td>
+                        <td> ${item.title}</td>
+                        <td> ${item.completed}</td>
+                        </tr>
+                    `;
+                };
+                mytable.innerHTML=str;
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
+        }
+        fetchData();
+    </script>
+</body>
+</html>

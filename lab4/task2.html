@@ -1,0 +1,24 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <p class="rend"></p>
+        <script>
+            async function fetchans()
+            {
+                let ans=await fetch("https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid=eb629e98d2e18a1c8f6a14ecf670485d");
+                let data=await ans.json();
+                const{main:{temp_max,temp_min,humidity}}=data;
+                let para=document.querySelector(".rend");
+                let str=`<p> temp_max : ${temp_max}</p>
+                         <p> temp_min : ${temp_min}</p>
+                         <p> humidity : ${humidity}</p>
+                <br>`;    
+
+                para.innerHTML=str;
+            }
+            fetchans();
+        </script>
+    </body>
+</html>

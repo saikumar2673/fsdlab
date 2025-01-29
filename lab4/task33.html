@@ -1,0 +1,27 @@
+<html>
+    <head></head>
+    <body>
+        <input type="text" class="inp">
+        <p class="para"></p>
+        <button class="btn" onclick="getdata()">get details</button>
+        <script>
+
+            async function getdata()
+            {
+                let city=document.querySelector(".inp").value;
+                
+                let rawdata=await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=eb629e98d2e18a1c8f6a14ecf670485d`);
+                let data=await rawdata.json();
+                
+                const{main:{temp_max,temp_min,humidity}}=data;
+                let para=document.querySelector(".para");
+                let str=`
+                 <p> temp_max : ${temp_max}</p>
+                         <p> temp_min : ${temp_min}</p>
+                         <p> humidity : ${humidity}</p>
+                `;
+                para.innerHTML=str;
+            }
+        </script>
+    </body>
+</html>
