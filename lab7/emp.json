@@ -1,0 +1,19 @@
+[
+    {
+        "id":1,
+        "name":"sai",
+        "dept":"cse"
+    },
+
+    {
+        "id":2,
+        "name":"sri",
+        "dept":"ece"
+    },
+
+    {
+        "id":3,
+        "name":"shiva",
+        "dept":"eee"
+    }
+]
